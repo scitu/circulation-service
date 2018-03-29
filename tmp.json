@@ -1,0 +1,7 @@
+
+    {   "clientId": "XktIvUT5HDz43XG4Mj7qvbgANCSrU3FHgb1wf39j",
+        "clientSecret": "ZH3FeOsDlZKfECPjNRrMXfy07lJkdT4d6XdtdqrVkz9KlG9bKjLyfPLnWowzrsvOxnAzqhjz7WA3NvxpzUg3Kdlvz9XmF8NfGcI2XnWdjHD9icPIAa5GY1fnQiEssMje",
+        "redirectUri": "http://localhost:3000/auth/complete",
+        "editUrl": "http://172.25.67.154:8000/o/applications/1/",
+        "secretSession": "C44-4D44-WppQ38S-3TB"}
+    

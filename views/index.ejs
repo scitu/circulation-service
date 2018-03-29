@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rentTU</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="stylesheets/css/styles.css">
+    <style>
+        td:hover {
+            background-color: springgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container">
+                <a class="navbar-brand" href="#">Company Name</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="#">First Item</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#">Second Item</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" role="presentation" href="#">First Item</a>
+                                <a class="dropdown-item" role="presentation" href="#">Second Item</a>
+                                <a class="dropdown-item" role="presentation" href="#">Third Item</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <span class="navbar-text actions">
+                        <a href="#" class="login">Log In</a>
+                        <a class="btn btn-light action-button" role="button" href="#">Sign Up</a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">ชื่อ/เลข
+                                        <strong>ครุภัณฑ์</strong>
+                                    </th>
+                                    <% for ( let i=0; i<dates.date.length; i++) {%>
+                                        <th colspan="2"><%= dates.date[i] %></th>
+                                        <% } %>
+                                </tr>
+                                <tr>
+                                    <% for ( let i=0; i<dates.amountperiod; i++) {%>
+                                        <th>ช่วงเช้า</th>
+                                        <th>ช่วงบ่าย</th>
+                                    <% } %>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <% var index = 0;%>
+                                    <% for ( let i=0; i<dates.item.length; i++) {%>
+                                <tr> 
+                                    <th>
+                                        <%= dates.item[i] %>
+                                    </th>
+                                    <% for ( let i=0; i<dates.amountclick; i++) {%>
+                                        <td id="<%= dates.item[index] %><%=i%>" onclick='checkclick("<%= dates.item[index] %><%=i%>")'>click</td>
+                                    <% } %>
+                                    <% index++ %>
+                                </tr>
+                                <% }%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-bottom:50px;">
+            <button id="butt" class="btn btn-success">submit </button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">รายการจอง</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    computer01 วันจันทร์ ช่วง เช้า,บ่าย
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="stylesheets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $('#butt').click(function () {
+            $("#exampleModal").modal();
+        });
+        function checkclick(input) {
+            $('#'+input).css("background-color", "red");
+            alert('#'+input)
+        }
+    </script>
+</body>
+
+</html>
